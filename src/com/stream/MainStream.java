@@ -3,6 +3,7 @@ package com.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -24,6 +25,14 @@ public class MainStream {
 		Function<Integer, Double> doubleFunction = Integer::doubleValue;
 		List<Double> doubleList = integers.stream().map(doubleFunction).collect(Collectors.toList());
 		System.out.println("Printing double list " + doubleList);
+		
+		//Implicit lambda function to print even no
+		Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
+		List<Double> evenList = integers.stream()
+										   .filter(isEvenFunction)
+										   .map(doubleFunction)
+										   .collect(Collectors.toList());
+		System.out.println("Printing even numbers "+evenList);
 
 	}
 }
