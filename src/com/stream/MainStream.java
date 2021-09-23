@@ -73,5 +73,11 @@ public class MainStream {
 		System.out.println("Sum is : "+sum);
 		System.out.println("Count is : "+count);
 		System.out.println("Average is "+sum/count);
+		
+		//finding if all numbers are even or atleast one number is even
+		boolean allEven = integers.stream().allMatch(isEvenFunction);
+		boolean oneEven = integers.stream().anyMatch(isEvenFunction);
+		boolean noneMultOfSix = integers.stream().noneMatch(i -> i > 0 && i % 6 == 0);
+		System.out.print("All even "+allEven+"\nOne even "+oneEven+"\nnone multiple of six "+noneMultOfSix);
 	}
 }
