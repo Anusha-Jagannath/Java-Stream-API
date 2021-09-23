@@ -66,5 +66,12 @@ public class MainStream {
 					          .max(Comparator.comparing(Integer::intValue))
 					          .orElse(null);
 		System.out.println("Maximum even no "+max);
+		
+		//find sum and average in the number stream
+		Integer sum = integers.stream().reduce(0, Integer::sum);
+		long count = integers.stream().count();
+		System.out.println("Sum is : "+sum);
+		System.out.println("Count is : "+count);
+		System.out.println("Average is "+sum/count);
 	}
 }
