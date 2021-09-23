@@ -23,7 +23,9 @@ public class MainStream {
 		// converting integer list to double list using map function and collecting the
 		// result using stream collect
 		Function<Integer, Double> doubleFunction = Integer::doubleValue;
-		List<Double> doubleList = integers.stream().map(doubleFunction).collect(Collectors.toList());
+		List<Double> doubleList = integers.stream()
+										  .map(doubleFunction)
+										  .collect(Collectors.toList());
 		System.out.println("Printing double list " + doubleList);
 		
 		//Implicit lambda function to print even no
@@ -33,6 +35,22 @@ public class MainStream {
 										   .map(doubleFunction)
 										   .collect(Collectors.toList());
 		System.out.println("Printing even numbers "+evenList);
+		
+		//method to peek even number in the list
+		List<Double> streamList = integers.stream()
+								  .filter(isEvenFunction)
+								  .peek(n -> System.out.println("Peak even no: "+n))
+								  .map(doubleFunction)
+								  .collect(Collectors.toList());
+		System.out.println("Printing double list " + streamList);
+		
+		//method to peek first even number
+		Integer first = integers.stream()
+								.filter(isEvenFunction)
+								.peek(n -> System.out.println("peak even no : "+n))
+								.findFirst()
+								.orElse(null);
+		System.out.println("First even no : "+first);
 
 	}
 }
