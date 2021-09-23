@@ -79,5 +79,11 @@ public class MainStream {
 		boolean oneEven = integers.stream().anyMatch(isEvenFunction);
 		boolean noneMultOfSix = integers.stream().noneMatch(i -> i > 0 && i % 6 == 0);
 		System.out.print("All even "+allEven+"\nOne even "+oneEven+"\nnone multiple of six "+noneMultOfSix);
+		
+		//sorting the number stream in ascending order
+		List<Integer> sortedList = integers.stream()
+										    .sorted((n1,n2) -> n1.compareTo(n2))
+										    .collect(Collectors.toList());
+		System.out.println("Sorted List : "+sortedList);
 	}
 }
