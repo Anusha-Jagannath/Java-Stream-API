@@ -1,6 +1,7 @@
 package com.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -51,6 +52,19 @@ public class MainStream {
 								.findFirst()
 								.orElse(null);
 		System.out.println("First even no : "+first);
-
+		
+		//find minimum even no
+		Integer min = integers.stream()
+							  .filter(isEvenFunction)
+							  .min((n1,n2) -> n1-n2)
+							  .orElse(null);
+		System.out.println("Minimum number is "+min);
+		
+		//find maximum even no
+		Integer max = integers.stream()
+					          .filter(isEvenFunction)
+					          .max(Comparator.comparing(Integer::intValue))
+					          .orElse(null);
+		System.out.println("Maximum even no "+max);
 	}
 }
