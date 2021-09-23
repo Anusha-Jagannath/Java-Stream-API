@@ -19,7 +19,8 @@ public class MainStream {
 			System.out.println("Stream forEach value " + n);
 		});
 
-		// converting integer list to double list using map function
+		// converting integer list to double list using map function and collecting the
+		// result using stream collect
 		Function<Integer, Double> doubleFunction = Integer::doubleValue;
 		List<Double> doubleList = integers.stream().map(doubleFunction).collect(Collectors.toList());
 		System.out.println("Printing double list " + doubleList);
